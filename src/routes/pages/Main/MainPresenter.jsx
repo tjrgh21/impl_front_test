@@ -5,13 +5,9 @@ import { Layout } from "../../../components/Layout/Layout";
 const MainPresenter = () => {
     return (
         <div className="main-container">
-            <Layout
-                children={
-                    <div className="main-content">
-                        <p>MainPage</p>
-                    </div>
-                }
-            />
+            <Layout>
+                <p>Main Page</p>
+            </Layout>
         </div>
     )
 }

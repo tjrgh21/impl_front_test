@@ -9,5 +9,6 @@
     width: 100%;
     background-color: transparent;
     flex-direction: column;
+    justify-content: center;
     height: 100vh;
 }
