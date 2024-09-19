@@ -1,0 +1,59 @@
+.mainbottom-container {
+    display: flex;
+    flex-direction: row;
+
+    color: white;
+    background-color: #1D95D4;
+
+    justify-content: space-around;
+    width: 100%;
+    
+}
+
+.mainbottom-container .mainbottom-professor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 80px;
+    width: 100%;
+    border-right: 1px solid white;
+}
+
+.mainbottom-container .mainbottom-researcher {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 80px;
+    width: 100%;
+}
+
+.mainbottom-container .mainbottom-professor .mainbottom-span1 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.mainbottom-container .mainbottom-professor .mainbottom-span2 {
+    font-weight: 600;
+    color: #9BDDFF;
+}
+
+.mainbottom-container .mainbottom-researcher .mainbottom-span3 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.mainbottom-container .mainbottom-researcher .mainbottom-span4 {
+    font-weight: 600;
+    color: #9BDDFF;
+}
+
+.mainbottom-container  .mainbottom-arrow {
+    align-self: center;
+}
+
+.mainbottom-container  .mainbottom-arrow .right-arrow {
+    width: 27px;
+    height: 27px;
+}

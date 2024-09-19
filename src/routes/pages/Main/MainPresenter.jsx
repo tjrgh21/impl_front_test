@@ -1,17 +1,19 @@
 import React from "react";
 import './Main.css';
 import { Layout } from "../../../components/Layout/Layout";
+import { Project } from "./components/Project/Project";
+import { ImplMemory } from "./components/ImplMemory/ImplMemory";
+import { MainBottom } from "./components/MainBottom/MainBottom";
+
 
 const MainPresenter = () => {
     return (
         <div className="main-container">
-            <Layout
-                children={
-                    <div className="main-content">
-                        <p>MainPage</p>
-                    </div>
-                }
-            />
+            <Layout type={"메인"}>
+                <Project/>
+                <ImplMemory />
+                <MainBottom />
+            </Layout>
         </div>
     )
 }

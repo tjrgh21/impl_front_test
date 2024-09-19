@@ -6,15 +6,22 @@ import { Bottom } from "../Bottom/Bottom";
 import { TapBar } from "../TapBar/TapBar";
 
 export const Layout = (
-    {children}
+    {children, type}
 ) => {
 
     return(
         <div className="layout-container">
-            
             <Top/>
             <Banner/>
-            <TapBar/>
+            {
+                type==="메인"
+                ?
+                null
+                :
+                <>
+                    <TapBar/>
+                </>
+            }
             {children}
             <Bottom/>
             
