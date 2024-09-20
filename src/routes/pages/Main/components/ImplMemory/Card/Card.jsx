@@ -1,6 +1,7 @@
 import React from 'react';
 import './Card.css';
 import DSUimage from '../../../../../../assets/images/DSU_Banner.png'
+import { useNavigate } from 'react-router-dom';
 
 const dummy = [
     {
@@ -31,8 +32,14 @@ const dummy = [
 ]
 
 export const Card = () => {
+    const navigate = useNavigate();
+
+    const goToInfo = () => {
+        navigate('/info', { state: { activeKey: '3' } })
+    }
+
     return (
-        <div className="card-container">
+        <div className="card-container" onClick={goToInfo}>
             <div className="card-contents">
                     {
                         dummy.map((data, index) => {

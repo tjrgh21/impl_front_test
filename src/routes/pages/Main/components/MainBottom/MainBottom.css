@@ -18,6 +18,8 @@
     padding: 80px;
     width: 100%;
     border-right: 1px solid white;
+
+    cursor: pointer;
 }
 
 .mainbottom-container .mainbottom-researcher {

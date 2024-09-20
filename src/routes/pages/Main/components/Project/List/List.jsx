@@ -4,6 +4,7 @@ import DSUimage from '../../../../../../assets/images/DSU_Banner.png'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 const dummy = [
     {
@@ -33,8 +34,14 @@ export const List = () => {
         
     };
 
+    const navigate = useNavigate();
+
+    const goToInfo = () => {
+        navigate("/info", { state: { activeKey: '2' } })
+    }
+
     return (
-        <div className="list-container">
+        <div className="list-container" onClick={goToInfo}>
             <Slider {...settings}>
                 {dummy.map((data, index) => (
                     <div key={index} className="list-contents">

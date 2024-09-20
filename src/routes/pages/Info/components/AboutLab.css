@@ -49,3 +49,12 @@
     line-height: 1.6;
     margin: 15px 0 0 15px;  
 }
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-img img{
+    width: 85%;
+}

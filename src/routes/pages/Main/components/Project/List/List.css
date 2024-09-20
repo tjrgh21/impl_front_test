@@ -1,5 +1,6 @@
 .list-container {
     overflow-x: hidden;
+    cursor: pointer;
 }
 
 .list-container .list-img {

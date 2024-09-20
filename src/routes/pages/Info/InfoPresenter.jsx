@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Layout } from '../../../components/Layout/Layout';
 import { Title } from '../../../components/Title/Title';
 import { LabIntro, LabProjects, LabMemories, ProfessorProfile } from './components/AboutLab';
+import { useLocation } from 'react-router-dom';
 
 
 const items = [
@@ -12,7 +13,10 @@ const items = [
 ];
 
 const InfoPresenter = () => {
-    const [activeKey, setActiveKey] = useState('1'); // 기본적으로 첫 번째 탭을 선택
+    const location = useLocation();
+    const initialKey = location.state?.activeKey || '1';
+
+    const [activeKey, setActiveKey] = useState(initialKey); // 기본적으로 첫 번째 탭을 선택
 
     const handleTabChange = (key) => {
         setActiveKey(key); // 선택된 key값으로 상태 변경
