@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Layout } from '../../../components/Layout/Layout';
 import { Title } from '../../../components/Title/Title';
+import { LabIntro, LabProjects, LabMemories, ProfessorProfile } from './components/AboutLab';
+
 
 const items = [
-    { key: '1', label: '연구실 소개', children: 'Content of Tab Pane 1' },
-    { key: '2', label: '프로젝트/연구', children: 'Content of Tab Pane 2' },
-    { key: '3', label: '임플의 추억', children: 'Content of Tab Pane 3' },
-    { key: '4', label: '교수님 소개', children: 'Content of Tab Pane 4' },
+    { key: '1', label: '연구실 소개', children: <LabIntro/> },
+    { key: '2', label: '프로젝트/연구', children: <LabProjects/> },
+    { key: '3', label: '임플의 추억', children: <LabMemories/> },
+    { key: '4', label: '교수님 소개', children: <ProfessorProfile/> },
 ];
 
 const InfoPresenter = () => {
