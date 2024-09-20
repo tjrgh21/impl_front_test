@@ -1,5 +1,6 @@
 import React from "react";
 import './AboutLab.css';
+import { TapBar } from "../../../../components/TapBar/TapBar";
 
 
 const InfoBox = ({ label, data }) => {
@@ -133,6 +134,7 @@ export const LabProjects = () => {
         <div className="aboutlab-container">
             <div className="projects-container">
                 <h2>프로젝트/연구</h2>
+                <TapBar/>
             </div>
         </div>
     )
