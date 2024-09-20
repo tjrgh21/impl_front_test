@@ -25,11 +25,11 @@ export const List = () => {
     const settings = {
         dots: false, // 하단에 점 내비게이션 표시
         infinite: true, // 무한 반복
-        speed: 500, // 슬라이드 전환 속도(ms)
+        speed: 700, // 슬라이드 전환 속도(ms)
         slidesToShow: 4, // 화면에 보여지는 슬라이드 개수
         slidesToScroll: 1, // 한 번에 넘어가는 슬라이드 개수
         autoplay: true, // 자동 재생 활성화
-        autoplaySpeed: 2200, // 자동 재생 속도(ms)
+        autoplaySpeed: 3000, // 자동 재생 속도(ms)
         
     };
 

@@ -31,25 +31,25 @@ const dummy = [
 ]
 
 export const Card = () => {
-  return (
-    <div className="card-container">
-        <div className="card-contents">
-                {
-                    dummy.map((data, index) => {
-                        return (
-                            <div className="card-items">
-                                <img className="card-img" src={data.src} alt="" key={index} />
-                                <div className="card-notice">
-                                    <span className='card-title'>{data.title}</span>
-                                    <span className='card-date'>{data.date}</span>
-                                    <span className='card-description'>{data.description}</span>
+    return (
+        <div className="card-container">
+            <div className="card-contents">
+                    {
+                        dummy.map((data, index) => {
+                            return (
+                                <div className="card-items">
+                                    <img className="card-img" src={data.src} alt="" key={index} />
+                                    <div className="card-notice">
+                                        <span className='card-title'>{data.title}</span>
+                                        <span className='card-date'>{data.date}</span>
+                                        <span className='card-description'>{data.description}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                        )
-                    })
-                }
-            </div>
-    </div>
-  );
+                                
+                            )
+                        })
+                    }
+                </div>
+        </div>
+    );
 };
