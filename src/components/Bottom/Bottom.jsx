@@ -1,5 +1,7 @@
 import React from "react";
 import './Bottom.css'
+import KAKAOImage from '../../assets/images/kakao.png'
+import PHONEImage from '../../assets/images/phone.png'
 
 export const Bottom = () => {
     return(
@@ -14,11 +16,11 @@ export const Bottom = () => {
                     <p>E-mail : bongjun.choi@dongseo.ac.kr</p>
                 </div>
                 <div className="botoom-down-icon">
-                    <a href="">
-                        <img src="kakao.png" alt="" />
+                    <a href="/main">
+                        <img src={KAKAOImage} alt="kakao" />
                     </a>
-                    <a href="">
-                        <img src="phone.png" alt="" />
+                    <a href="/main">
+                        <img src={PHONEImage} alt="phone" />
                     </a>
                 </div>
             </div>
