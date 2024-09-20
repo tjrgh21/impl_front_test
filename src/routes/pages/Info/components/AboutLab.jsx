@@ -3,14 +3,33 @@ import './AboutLab.css';
 import ProfessorImg from '../../../../assets/images/professor.jpg'
 
 
-const InfoBox = ({ label, text }) => {
+const InfoBox = ({ label, data }) => {
     return (
         <div className="info-box">
             <div className="label-container">
                 <div className="blue-square"></div>
                 <h2 className="info-box-label">{label}</h2>
             </div>
-            <p className="info-box-text">{text}</p>
+            {data && data.length > 0 && data.map((item, index) => (
+                <div key={index}>
+                    {item.text && Array.isArray(item.text) ? (
+                        item.text.map((textItem, textIndex) => (
+                            <p key={textIndex} className="info-box-text">{textItem}</p>
+                        ))
+                    ) : (
+                        <p className="info-box-text">{item.text}</p>
+                    )}
+
+                    {/* 삼항 연산자로 images가 있는 경우와 없는 경우 처리 */}
+                    {item.images && item.images.length > 0 ? (
+                        <div className="image-container">
+                            {item.images.map((src, imgIndex) => (
+                                <img key={imgIndex} src={src} alt={`info-${label}-${index}-${imgIndex}`} className="info-box-image" />
+                            ))}
+                        </div>
+                    ) : null}
+                </div>
+            ))}
         </div>
     );
 };
@@ -24,16 +43,24 @@ export const LabIntro = () => {
                 <div className="info-container">
                     <InfoBox
                     label={"지도교수"}
-                    text={"최봉준 교수님"}
+                    data={[
+                        {
+                            text:"최봉준 교수님"
+                        }
+                    ]}
                     />
                     <InfoBox
                     label={"연구실"}
-                    text={"NM관 1004호"}
+                    data={[
+                        {
+                            text:"NM관 1004호"
+                        }
+                    ]}
                     />
                     <InfoBox
                     label={"연구실 소개"}
                     text={
-                        <p>IMPL 연구회는 Implementation 의 줄임말로, 아이디어를 구현하고 실행하는 뜻을 가지고 있습니다.
+                        <p>IMPL 연구회는 Implementation 의 줄임말로, 아이디어를 구현하고 실행하는 뜻을 가지고 있습니다.<br/>
                             더불어, “I’m Project Leader”라는 뜻을 함축하고 있어, 주도적인 역할을 하게 되어 성장하는 것을 목표로 하고 있습니다.
                             IMPL 연구회는 교수님 지도 아래 인공지능, 데이터 분석, 기본적인 프로그래밍 능력을 기반으로 다양한 프로젝트를 통해 이를 활용하고자 합니다.<br/>
                             ‘고민은 고(Go) 이후에’라는 IMPL 연구회의 모토를 통해 고민하는 것이 중요하지만, 그것을 실행으로 이어지는 것이 더 중요하다고 생각하며, 고민으로만 머무르지 않고, 실제 행동으로 옮기며 성장하고 있습니다.
