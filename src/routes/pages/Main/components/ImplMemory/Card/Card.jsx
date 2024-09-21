@@ -3,33 +3,15 @@ import './Card.css';
 import DSUimage from '../../../../../../assets/images/DSU_Banner.png'
 import { useNavigate } from 'react-router-dom';
 
-const dummy = [
-    {
-        src: DSUimage,
-        date: '2024-08-26 회식',
-        title: 'IMPL의 추억',
-        description: '삼겹살과 소주',
-        
-    },
-    {
-        src: DSUimage,
-        date: '2024-08-11 회식',
-        title: 'IMPL의 추억',
-        description: '복판통닭에서 한 잔',
-    },
-    {
-        src: DSUimage,
-        date: '2024-08-02 회식',
-        title: 'IMPL의 추억',
-        description: '맘스터치',
-    },
-    {
-        src: DSUimage,
-        date: '2024-09-12 회식',
-        title: 'IMPL의 추억',
-        description: '젤리',
-    },
-]
+export const MemoryimagesData = [
+    { id: 1, title: '임플의 추억1', date: '2024-06-10', src: DSUimage },
+    { id: 2, title: '임플의 추억2', date: '2024-06-25', src: DSUimage },
+    { id: 3, title: '임플의 추억3', date: '2024-07-05', src: DSUimage },
+    { id: 4, title: '임플의 추억4', date: '2024-07-12', src: DSUimage },
+    { id: 5, title: '임플의 추억5', date: '2024-07-16', src: DSUimage },
+    { id: 6, title: '임플의 추억6', date: '2024-07-27', src: 'image.png' },
+    // 더 많은 이미지 추가 가능
+];
 
 export const Card = () => {
     const navigate = useNavigate();
@@ -42,7 +24,7 @@ export const Card = () => {
         <div className="card-container" onClick={goToInfo}>
             <div className="card-contents">
                     {
-                        dummy.map((data, index) => {
+                        MemoryimagesData.slice(-4).reverse().map((data, index) => {
                             return (
                                 <div className="card-items">
                                     <img className="card-img" src={data.src} alt="" key={index} />

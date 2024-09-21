@@ -6,21 +6,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from "react-router-dom";
 
-const dummy = [
-    {
-        src: DSUimage
-    },
-    {
-        src: DSUimage
-    },
-    {
-        src: DSUimage
-    },
-    {
-        src: DSUimage
-    },
-    
-]
+export const imagesData = [
+    { id: 1, category: '논문', title: '프로젝트명1', date: '2024-06-10', src: DSUimage },
+    { id: 2, category: '특허', title: '프로젝트명2', date: '2024-06-25', src: 'image.png' },
+    { id: 3, category: '공모전', title: '프로젝트명3', date: '2024-07-05', src: 'image.png', badge: true },
+    { id: 4, category: '학술대회', title: '프로젝트명4', date: '2024-07-12', src: 'image.png' },
+    { id: 5, category: '학술지', title: '프로젝트명5', date: '2024-07-16', src: 'image.png', badge: true },
+    { id: 6, category: '논문', title: '프로젝트명6', date: '2024-07-27', src: 'image.png', badge: true },
+    { id: 7, category: '특허', title: '프로젝트명7', date: '2024-08-08', src: 'image.png' },
+    { id: 8, category: '공모전', title: '프로젝트명8', date: '2024-08-16', src: DSUimage },
+    { id: 9, category: '학술대회', title: '프로젝트명9', date: '2024-08-30', src: 'image.png', badge: true },
+    { id: 10, category: '학술대회', title: '프로젝트명10', date: '2024-08-31', src: DSUimage }
+    // 더 많은 이미지 추가 가능
+];
 
 export const List = () => {
     const settings = {
@@ -43,7 +41,7 @@ export const List = () => {
     return (
         <div className="list-container" onClick={goToInfo}>
             <Slider {...settings}>
-                {dummy.map((data, index) => (
+                {imagesData.slice().reverse().map((data, index) => (
                     <div key={index} className="list-contents">
                         <img className="list-img" src={data.src} alt={`slide-${index}`} />
                     </div>

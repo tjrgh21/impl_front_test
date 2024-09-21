@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import './AboutLab.css';
 import ProfessorImg from '../../../../assets/images/professor.jpg'
-import DSUimage from '../../../../../src/assets/images/DSU_Banner.png'
+import { imagesData } from "../../Main/components/Project/List/List";
+import { MemoryimagesData } from "../../Main/components/ImplMemory/Card/Card";
 
 
 const InfoBox = ({ label, data }) => {
@@ -134,20 +135,6 @@ export const LabIntro = () => {
 
 export const LabProjects = () => {
 
-    const imagesData = [
-        { id: 1, category: '논문', title: '프로젝트명1', date: '2024-06-10', src: DSUimage },
-        { id: 2, category: '특허', title: '프로젝트명2', date: '2024-06-25', src: 'image.png' },
-        { id: 3, category: '공모전', title: '프로젝트명3', date: '2024-07-05', src: 'image.png', badge: true },
-        { id: 4, category: '학술대회', title: '프로젝트명4', date: '2024-07-12', src: 'image.png' },
-        { id: 5, category: '학술지', title: '프로젝트명5', date: '2024-07-16', src: 'image.png', badge: true },
-        { id: 6, category: '논문', title: '프로젝트명6', date: '2024-07-27', src: 'image.png', badge: true },
-        { id: 7, category: '특허', title: '프로젝트명7', date: '2024-08-08', src: 'image.png' },
-        { id: 8, category: '공모전', title: '프로젝트명8', date: '2024-08-16', src: DSUimage },
-        { id: 9, category: '학술대회', title: '프로젝트명9', date: '2024-08-30', src: 'image.png', badge: true },
-        { id: 10, category: '학술대회', title: '프로젝트명10', date: '2024-08-31', src: 'image.png' }
-        // 더 많은 이미지 추가 가능
-    ];
-
     const [activeTab, setActiveTab] = useState('ALL');
 
     const filteredImages = activeTab === 'ALL'
@@ -196,16 +183,6 @@ export const LabProjects = () => {
 }
 
 export const LabMemories = () => {
-
-    const MemoryimagesData = [
-        { id: 1, title: '임플의 추억1', date: '2024-06-10', src: DSUimage },
-        { id: 2, title: '임플의 추억2', date: '2024-06-25', src: 'image.png' },
-        { id: 3, title: '임플의 추억3', date: '2024-07-05', src: 'image.png' },
-        { id: 4, title: '임플의 추억4', date: '2024-07-12', src: 'image.png' },
-        { id: 5, title: '임플의 추억5', date: '2024-07-16', src: 'image.png' },
-        { id: 6, title: '임플의 추억6', date: '2024-07-27', src: 'image.png' },
-        // 더 많은 이미지 추가 가능
-    ];
 
     return(
         <div className="aboutlab-container">
