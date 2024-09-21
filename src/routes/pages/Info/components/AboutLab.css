@@ -104,8 +104,8 @@
 
 :root {
     --project-color: rgb(0, 0, 0); /* 프로젝트명 색상 */
-    --category-color: rgb(255, 0, 0); /* 카테고리 색상 */
-    --date-color: rgb(0, 255, 26); /* 날짜 색상 */
+    --category-color: rgb(0, 0, 0); /* 카테고리 색상 */
+    --date-color: rgb(0, 0, 0); /* 날짜 색상 */
 }
 
 
@@ -157,15 +157,15 @@
     background-color: yellow;
     color: black;
     font-weight: bold;
-    padding: 0.5vw;  /* 이미지 크기에 비례한 배지 크기 조정 */
+    padding: 0.2vw;  /* 이미지 크기에 비례한 배지 크기 조정 */
     border-radius: 50%;  /* 동그라미 모양 */
-    font-size: 1vw;  /* 텍스트 크기 비율 조정 */
+    font-size: 0.7vw;  /* 텍스트 크기 비율 조정 */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 6vw;  /* 배지 크기를 이미지에 비례하게 설정 */
-    height: 6vw;  /* 배지 크기를 이미지에 비례하게 설정 */
+    width: 4vw;  /* 배지 크기를 이미지에 비례하게 설정 */
+    height: 4vw;  /* 배지 크기를 이미지에 비례하게 설정 */
 }
 
 
