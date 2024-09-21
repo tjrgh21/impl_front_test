@@ -58,7 +58,151 @@
 }
 
 .info-box-image{
-    width: 80%;
+    width: 70%;
+}
+
+
+.projects-container {
+    padding: 20px;
+}
+
+.tab-bar {
+    display: flex;
+    justify-content: space-around;
+    margin:0 40px 20px 40px;
+    border: 1px solid #dfdede;
+}
+
+.tab-bar button {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    background-color: #ececec; /* 버튼 배경 */
+    font-size: 16px;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 1px solid #dfdede; /* 버튼 좌측 실선 */
+    border-right: 1px solid #dfdede; /* 버튼 우측 실선 */
+}
+
+.tab-bar button.active {
+    border: 1px solid red; /* 선택된 탭은 빨간색 테두리 */
+    color: red; /* 선택된 탭의 텍스트 색상 */
+    background-color: #fff; /* 선택된 탭은 흰색 배경 */
+    border-left: 1px solid red; /* 선택된 탭도 좌측 빨간 실선 */
+    border-right: 1px solid red; /* 선택된 탭도 우측 빨간 실선 */
+}
+
+.tab-bar button:not(.active):hover {
+    background-color: #e0e0e0; /* 비활성화된 탭에 마우스를 올렸을 때의 배경색 */
+}
+
+.tab-bar button:focus {
+    outline: none;
+}
+
+:root {
+    --project-color: rgb(0, 0, 0); /* 프로젝트명 색상 */
+    --category-color: rgb(255, 0, 0); /* 카테고리 색상 */
+    --date-color: rgb(0, 255, 26); /* 날짜 색상 */
+}
+
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 열 */
+    gap: 3rem;
+    padding: 20px;
+}
+
+.image-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.image-item:hover img {
+    filter: brightness(0.85); /* 마우스 오버 시 이미지 어두워짐 */
+}
+
+.image-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-color); /* 텍스트 색상 조절 */
+    opacity: 0; /* 기본 상태에서 정보 숨김 */
+    transition: opacity 0.3s ease, font-size 0.3s ease;
+}
+
+.image-item:hover .image-info {
+    opacity: 1; /* 마우스 오버 시 프로젝트 정보 표시 */
+}
+
+.badge {
+    position: absolute;
+    top: 2%;  /* 이미지 크기에 비례하여 상단 여백 조정 */
+    right: 2%;  /* 이미지 크기에 비례하여 우측 여백 조정 */
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 0.5vw;  /* 이미지 크기에 비례한 배지 크기 조정 */
+    border-radius: 50%;  /* 동그라미 모양 */
+    font-size: 1vw;  /* 텍스트 크기 비율 조정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 6vw;  /* 배지 크기를 이미지에 비례하게 설정 */
+    height: 6vw;  /* 배지 크기를 이미지에 비례하게 설정 */
+}
+
+
+/* 그리드 및 레이아웃 관련 */
+.image-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-info h3, .image-info p {
+    margin: 0;
+}
+
+.image-info h3 {
+    font-size: 2vw; /* 타이틀 텍스트 크기 */
+    color: var(--project-color);
+}
+
+.image-info h5 {
+    font-size: 1.5vw; /* 타이틀 텍스트 크기 */
+    color: var(--category-color);
+}
+
+.image-info p {
+    font-size: 1vw; /* 부가 정보 텍스트 크기 */
+    color: var(--date-color);
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+    .image-info {
+        font-size: 4vw;
+    }
+
+    .badge {
+        font-size: 2vw;
+    }
 }
 
 .profile-container {
