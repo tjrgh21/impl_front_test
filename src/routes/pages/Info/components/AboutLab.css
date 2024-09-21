@@ -180,17 +180,17 @@
 }
 
 .image-info h3 {
-    font-size: 2vw; /* 타이틀 텍스트 크기 */
+    font-size: 1.5vw; /* 타이틀 텍스트 크기 */
     color: var(--project-color);
 }
 
 .image-info h5 {
-    font-size: 1.5vw; /* 타이틀 텍스트 크기 */
+    font-size: 1vw; /* 타이틀 텍스트 크기 */
     color: var(--category-color);
 }
 
 .image-info p {
-    font-size: 1vw; /* 부가 정보 텍스트 크기 */
+    font-size: 0.7vw; /* 부가 정보 텍스트 크기 */
     color: var(--date-color);
 }
 
