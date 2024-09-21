@@ -209,13 +209,53 @@ export const ProfessorProfile = () => {
     return(
         <div className="aboutlab-container">
             <div className="profile-container">
-                <div className="profile-img">
-                    <img src={ProfessorImg} alt="professor" />
-                </div>
-                <div className="profile-history">
-                    sss
-                </div>
-            </div>
+      <div className="photo-section">
+        <div className="photo-placeholder">
+          <img className="photo" src={ProfessorImg} alt="" />
+        </div>
+      </div>
+      <div className="info-section">
+        <table className="info-table">
+          <tbody>
+            <tr>
+              <td className="label">이름</td>
+              <td>최봉준</td>
+            </tr>
+            <tr>
+              <td className="label">직위/보직</td>
+              <td>조교수/학과장</td>
+            </tr>
+            <tr>
+              <td className="label">연구실</td>
+              <td>뉴밀레니엄관 NM1004호</td>
+            </tr>
+            <tr>
+              <td className="label">연락처</td>
+              <td>
+                tel: 320-4288<br />
+                email: bongjun.choi@dongseo.ac.kr
+              </td>
+            </tr>
+            <tr>
+              <td className="label">학력</td>
+              <td>
+                동서대학교 컴퓨터정보공학부 학사<br />
+                연세대학교 컴퓨터과학 석사
+              </td>
+            </tr>
+            <tr>
+              <td className="label">경력</td>
+              <td>
+                현 동서대학교 소프트웨어융합대학 조교수<br />
+                LG전자 CTO부문 인공지능연구소 선임연구원<br />
+                Denmark Aalborg University Operation Research Lab Research Assistant<br />
+                인공지능(지도학습, 비지도학습), 데이터 분석
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
         </div>
     )
 }

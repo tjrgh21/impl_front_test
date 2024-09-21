@@ -159,13 +159,13 @@
     font-weight: bold;
     padding: 0.5vw;  /* 이미지 크기에 비례한 배지 크기 조정 */
     border-radius: 50%;  /* 동그라미 모양 */
-    font-size: 1vw;  /* 텍스트 크기 비율 조정 */
+    font-size: 0.6vw;  /* 텍스트 크기 비율 조정 */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 6vw;  /* 배지 크기를 이미지에 비례하게 설정 */
-    height: 6vw;  /* 배지 크기를 이미지에 비례하게 설정 */
+    width: 4vw;  /* 배지 크기를 이미지에 비례하게 설정 */
+    height: 4vw;  /* 배지 크기를 이미지에 비례하게 설정 */
 }
 
 
@@ -207,9 +207,51 @@
 
 .profile-container {
     display: flex;
-    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10%;
+  }
+  
+.photo-section {
+flex: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 10%;
 }
 
-.profile-img img{
-    width: 85%;
+.photo-placeholder {
+width: 250px;
+height: 350px;
+display: flex;
+border-radius: 10px;
+}
+
+.photo {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.info-section {
+flex: 2;
+border-top: 2px solid black;
+}
+
+.info-table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.label {
+font-weight: bold;
+width: 150px;
+padding-right: 10px;
+}
+
+.info-table td {
+padding: 15px;
+vertical-align: top;
+}
+
+.info-table tr {
+    border-bottom: 1px solid lightgray;
 }
