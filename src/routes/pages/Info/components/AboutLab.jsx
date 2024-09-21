@@ -196,10 +196,32 @@ export const LabProjects = () => {
 }
 
 export const LabMemories = () => {
+
+    const MemoryimagesData = [
+        { id: 1, title: '임플의 추억1', date: '2024-06-10', src: DSUimage },
+        { id: 2, title: '임플의 추억2', date: '2024-06-25', src: 'image.png' },
+        { id: 3, title: '임플의 추억3', date: '2024-07-05', src: 'image.png' },
+        { id: 4, title: '임플의 추억4', date: '2024-07-12', src: 'image.png' },
+        { id: 5, title: '임플의 추억5', date: '2024-07-16', src: 'image.png' },
+        { id: 6, title: '임플의 추억6', date: '2024-07-27', src: 'image.png' },
+        // 더 많은 이미지 추가 가능
+    ];
+
     return(
         <div className="aboutlab-container">
             <div className="memories-container">
-                <h2>임플의 추억</h2>
+            <div className="image-grid">
+                    {MemoryimagesData.slice().reverse().map((Memoryimage) => (
+                        <div key={Memoryimage.id} className="image-item">
+                            <img src={Memoryimage.src} />
+                            {/* 마우스 오버 시 보여줄 내용 */}
+                            <div className="image-info">
+                                <h5>{Memoryimage.title}</h5>
+                                <p>{Memoryimage.date}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )
