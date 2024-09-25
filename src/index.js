@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 /* 모든 페이지의 최상위 페이지를 불러온다. */
 import App from './App';
+import './index.css';
 
 import reportWebVitals from './reportWebVitals';
 

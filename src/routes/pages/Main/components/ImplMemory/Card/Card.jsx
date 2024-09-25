@@ -29,7 +29,7 @@ const dummy = [
         title: 'IMPL의 추억',
         description: '젤리',
     },
-]
+];
 
 export const Card = () => {
     const navigate = useNavigate();

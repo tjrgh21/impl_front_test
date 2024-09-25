@@ -1,0 +1,55 @@
+.contentbox-container {
+    padding: 90px 0 51px 0;
+    background-color: #f7f5f5;
+    position: relative;
+    margin-top: -8px;
+}
+
+.contentbox-wrap {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    background-color: white;
+    padding-bottom: 0;
+    margin-bottom: 30px;
+    border-radius: 12px;
+
+    max-width: 70%;
+    margin-left: 15%;
+}
+
+.contentbox-inner {
+    padding: 45px 40px 10px 40px;
+}
+
+.contentbox-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contentbox-info {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    color: #999;
+    gap: 8px;
+    border-bottom: 1px solid #9999995b;
+
+    padding-bottom: 24px;
+}
+
+.contentbox-text {
+    margin-top: 32px;
+}
+
+.contentbox-block {
+    margin-bottom: 50px;
+}
+
+.contentbox-block-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
