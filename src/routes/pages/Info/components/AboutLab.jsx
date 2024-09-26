@@ -36,6 +36,59 @@ const InfoBox = ({ label, data }) => {
     );
 };
 
+const Pagination = ({ totalItems, itemsPerPage, currentPage, onPageChange }) => {
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const maxPageNumbersToShow = 3; // 페이지 버튼을 몇 개까지 보여줄지 설정
+
+    const generatePageNumbers = () => {
+        const pageNumbers = [];
+        let startPage = Math.max(1, currentPage - 1);
+        let endPage = Math.min(totalPages, currentPage + 1);
+
+        // 시작 페이지가 1보다 클 경우 첫 페이지와 ... 표시
+        if (startPage > 1) {
+            pageNumbers.push(1);
+            if (startPage > 2) {
+                pageNumbers.push('...');
+            }
+        }
+
+        // 중간 페이지 번호 표시
+        for (let i = startPage; i <= endPage; i++) {
+            pageNumbers.push(i);
+        }
+
+        // 마지막 페이지가 전체 페이지보다 작을 경우 ... 표시 후 마지막 페이지
+        if (endPage < totalPages - 1) {
+            pageNumbers.push('...');
+        }
+
+        if (endPage < totalPages) {
+            pageNumbers.push(totalPages);
+        }
+
+        return pageNumbers;
+    };
+
+    return (
+        <div className="pagination-container">
+            <div className="pagination-pages">
+                {generatePageNumbers().map((number, index) => (
+                    <button
+                        key={index}
+                        className={`pagination-button ${currentPage === number ? 'active' : ''}`}
+                        onClick={() => typeof number === 'number' && onPageChange(number)}
+                        disabled={typeof number !== 'number'}
+                    >
+                        {number}
+                    </button>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+
 
 export const LabIntro = () => {
     return(
@@ -134,16 +187,19 @@ export const LabIntro = () => {
 
 
 export const LabProjects = () => {
-
     const [activeTab, setActiveTab] = useState('ALL');
+    const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
+    const itemsPerPage = 9; // 한 페이지에 보여줄 아이템 수
 
     const filteredImages = activeTab === 'ALL'
         ? imagesData
         : imagesData.filter(image => image.category === activeTab);
 
+    const currentItems = filteredImages.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
     const tabs = ['ALL', '논문', '특허', '공모전', '학술대회', '학술지'];
 
-    return(
+    return (
         <div className="aboutlab-container">
             <div className="projects-container">
                 {/* 탭바 */}
@@ -152,7 +208,10 @@ export const LabProjects = () => {
                         <button
                             key={tab}
                             className={activeTab === tab ? 'active' : ''}
-                            onClick={() => setActiveTab(tab)}
+                            onClick={() => {
+                                setActiveTab(tab);
+                                setCurrentPage(1); // 탭 변경 시 첫 페이지로 리셋
+                            }}
                         >
                             {tab}
                         </button>
@@ -161,37 +220,48 @@ export const LabProjects = () => {
 
                 {/* 이미지 그리드 */}
                 <div className="image-grid">
-                    {filteredImages.slice().reverse().map((image) => (
+                    {currentItems.slice().reverse().map((image) => (
                         <div key={image.id} className="image-item">
                             <img src={image.src} alt={image.category} />
-                            {/* 마우스 오버 시 보여줄 내용 */}
                             <div className="image-info">
                                 <h3>{image.title}</h3>
                                 <h5>{image.category}</h5>
                                 <p>{image.date}</p>
                             </div>
-                            {/* 우수논문상 배지 */}
-                            {image.badge && (
-                                <div className="badge">우수논문상</div>
-                            )}
+                            {image.badge && <div className="badge">우수논문상</div>}
                         </div>
                     ))}
                 </div>
+
+                {/* 페이지 네비게이션 */}
+                <Pagination
+                    totalItems={filteredImages.length}
+                    itemsPerPage={itemsPerPage}
+                    currentPage={currentPage}
+                    onPageChange={setCurrentPage}
+                />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export const LabMemories = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 12;
 
-    return(
+    const totalItems = MemoryimagesData.length;
+    const currentItems = MemoryimagesData.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
+    return (
         <div className="aboutlab-container">
             <div className="memories-container">
-            <div className="image-grid">
-                    {MemoryimagesData.slice().reverse().map((Memoryimage) => (
+                <div className="image-grid">
+                    {currentItems.slice().reverse().map((Memoryimage) => (
                         <div key={Memoryimage.id} className="image-item">
-                            <img src={Memoryimage.src} />
-                            {/* 마우스 오버 시 보여줄 내용 */}
+                            <img src={Memoryimage.src} alt={Memoryimage.title} />
                             <div className="image-info">
                                 <h5>{Memoryimage.title}</h5>
                                 <p>{Memoryimage.date}</p>
@@ -199,62 +269,88 @@ export const LabMemories = () => {
                         </div>
                     ))}
                 </div>
+
+                {/* Pagination 컴포넌트 사용 */}
+                <Pagination
+                    totalItems={totalItems}
+                    itemsPerPage={itemsPerPage}
+                    currentPage={currentPage}
+                    onPageChange={setCurrentPage}
+                />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export const ProfessorProfile = () => {
     return(
         <div className="aboutlab-container">
             <div className="profile-container">
-      <div className="photo-section">
-        <div className="photo-placeholder">
-          <img className="photo" src={ProfessorImg} alt="" />
+                <div className="photo-section">
+                    <div className="photo-placeholder">
+                    <img className="photo" src={ProfessorImg} alt="" />
+                    </div>
+                </div>
+                <div className="info-section">
+                    <table className="info-table">
+                        <tbody>
+                            <tr>
+                                <td className="label">이름</td>
+                                <td>최봉준</td>
+                            </tr>
+                            <tr>
+                                <td className="label">직위/보직</td>
+                                <td>조교수/학과장</td>
+                            </tr>
+                            <tr>
+                                <td className="label">연구실</td>
+                                <td>뉴밀레니엄관 NM1004호</td>
+                            </tr>
+                            <tr>
+                                <td className="label">연락처</td>
+                                <td>
+                                    tel: 320-4288<br />
+                                    email: bongjun.choi@dongseo.ac.kr
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="label">학력</td>
+                                <td>
+                                    동서대학교 컴퓨터정보공학부 학사<br />
+                                    연세대학교 컴퓨터과학 석사
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="label">경력</td>
+                                <td>
+                                    현 동서대학교 소프트웨어융합대학 조교수<br />
+                                    LG전자 CTO부문 인공지능연구소 선임연구원<br />
+                                    Denmark Aalborg University Operation Research Lab Research Assistant<br />
+                                    인공지능(지도학습, 비지도학습), 데이터 분석
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
-      <div className="info-section">
-        <table className="info-table">
-          <tbody>
-            <tr>
-              <td className="label">이름</td>
-              <td>최봉준</td>
-            </tr>
-            <tr>
-              <td className="label">직위/보직</td>
-              <td>조교수/학과장</td>
-            </tr>
-            <tr>
-              <td className="label">연구실</td>
-              <td>뉴밀레니엄관 NM1004호</td>
-            </tr>
-            <tr>
-              <td className="label">연락처</td>
-              <td>
-                tel: 320-4288<br />
-                email: bongjun.choi@dongseo.ac.kr
-              </td>
-            </tr>
-            <tr>
-              <td className="label">학력</td>
-              <td>
-                동서대학교 컴퓨터정보공학부 학사<br />
-                연세대학교 컴퓨터과학 석사
-              </td>
-            </tr>
-            <tr>
-              <td className="label">경력</td>
-              <td>
-                현 동서대학교 소프트웨어융합대학 조교수<br />
-                LG전자 CTO부문 인공지능연구소 선임연구원<br />
-                Denmark Aalborg University Operation Research Lab Research Assistant<br />
-                인공지능(지도학습, 비지도학습), 데이터 분석
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    );
+};
+export const Seminar = () => {
+    return(
+        <div className="seminar-container">
+            <div className="search-box">
+                <div className="content">
+                    <span className="icon"><i className="i-search"></i></span>
+                    <input type="Search" id="search" placeholder="Search.." />
+                </div>
+            </div>
+            <div className="info-count">
+                
+            </div>
+            <div className="wrapper-seminar-list"></div>
+            <Pagination/>
         </div>
     )
 }
+

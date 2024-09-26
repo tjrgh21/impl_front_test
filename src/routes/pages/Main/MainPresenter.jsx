@@ -7,6 +7,7 @@ import { MainBottom } from "./components/MainBottom/MainBottom";
 
 
 const MainPresenter = () => {
+
     return (
         <div className="main-container">
             <Layout >

@@ -206,6 +206,46 @@
     }
 }
 
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.pagination-pages {
+    display: flex;
+    gap: 10px;
+}
+
+.pagination-button {
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination-button.active {
+    background-color: rgb(248, 73, 73); /* 선택된 버튼의 배경색 (이미지와 유사한 색상) */
+    color: white;
+}
+
+.pagination-button:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination-button:disabled {
+    cursor: not-allowed;
+    color: #aaa;
+}
+
+.pagination-button:focus {
+    outline: none;
+}
+
+
 .profile-container {
     display: flex;
     width: 100%;
@@ -233,7 +273,7 @@ border-radius: 10px;
 
 .info-section {
 flex: 2;
-border-top: 2px solid black;
+border-top: 3px solid black;
 }
 
 .info-table {
@@ -254,4 +294,48 @@ vertical-align: top;
 
 .info-table tr {
     border-bottom: 1px solid lightgray;
+}
+
+.search-box{
+    padding-top: 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.search-box .content {
+    float: right;
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+
+.search-box span.icon {
+    position: absolute;
+    font-size: 18px;
+    top: 13px;
+    left: 14px;
+}
+
+.search-box span.icon i.i-search{
+    
+}
+
+.search-box input#search {
+    width: 300px;
+    height: 48px;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    font-size: 15px;
+    color: #333;
+    padding-left: 45px;
+    padding-right: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.search-box input#search:focus {
+    border: 1px solid #d1d1d1;
+    background: #FFF;
 }

@@ -11,11 +11,9 @@ export const Top = () => {
     }
 
     return(
-        <div className="top-container"
-            onClick={goToMain}
-        >
-            <img src={IMPL} alt="impl"/>
-            <h2>IMPL 연구실</h2>
+        <div className="top-container" >
+            <img src={IMPL} alt="impl" onClick={goToMain}/>
+            <h2 onClick={goToMain}>IMPL 연구실</h2>
         </div>
     )
 }

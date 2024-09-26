@@ -9,6 +9,7 @@ export const TapBar = ({ activeKey, onTabClick }) => {
                 <li><button onClick={() => onTabClick('2')} className={activeKey === '2' ? 'active' : ''}><span>프로젝트/연구</span></button></li>
                 <li><button onClick={() => onTabClick('3')} className={activeKey === '3' ? 'active' : ''}><span>임플의 추억</span></button></li>
                 <li><button onClick={() => onTabClick('4')} className={activeKey === '4' ? 'active' : ''}><span>교수님 소개</span></button></li>
+                <li><button onClick={() => onTabClick('5')} className={activeKey === '5' ? 'active' : ''}><span>세미나</span></button></li>
             </ul>
         </div>
     );
