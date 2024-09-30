@@ -7,8 +7,11 @@ export const Top = () => {
     const navigate = useNavigate();
 
     const goToMain = () => {
-        navigate("/")
-    }
+        navigate("/");
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 0);
+    };
 
     return(
         <div className="top-container" >

@@ -40,7 +40,10 @@ export const List = () => {
     const navigate = useNavigate();
 
     const goToInfo = () => {
-        navigate("/info", { state: { activeKey: '2' } })
+        navigate("/info", { state: { activeKey: '2' } });
+        setTimeout(() => {
+            window.scrollTo(0, 495);  // 원하는 스크롤 위치로 이동 (500은 예시)
+        }, 0);
     }
 
     return (
