@@ -43,18 +43,18 @@ export const List = () => {
         navigate("/info", { state: { activeKey: '2' } });
         setTimeout(() => {
             window.scrollTo(0, 495);  // 원하는 스크롤 위치로 이동 (500은 예시)
-        }, 0);
+        }, 0); 
     }
-
-    return (
-        <div className="list-container" onClick={goToInfo}>
-            <Slider {...settings}>
-                {imagesData.slice().reverse().map((data, index) => (
-                    <div key={index} className="list-contents">
-                        <img className="list-img" src={data.src} alt={`slide-${index}`} />
-                    </div>
-                ))}
-            </Slider>
-        </div>
+    
+        return (
+            <div className="list-container" onClick={goToInfo}>
+                <Slider {...settings}>
+                    {imagesData.slice().reverse().map((data, index) => (
+                        <div key={index} className="list-contents">
+                            <img className="list-img" src={data.src} alt={`slide-${index}`} />
+                        </div>
+                    ))}
+                </Slider>
+            </div>
     )
 }
