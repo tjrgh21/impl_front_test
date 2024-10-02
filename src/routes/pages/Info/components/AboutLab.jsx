@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import './AboutLab.css';
 import ProfessorImg from '../../../../assets/images/professor.jpg'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { imagesData } from "../../Main/components/Project/List/List";
 import { MemoryimagesData } from "../../Main/components/ImplMemory/Card/Card";
+import { SeminarsData } from "../../../../components/Seminars/Seminars";
 
 
 const InfoBox = ({ label, data }) => {
@@ -195,7 +197,9 @@ export const LabProjects = () => {
         ? imagesData
         : imagesData.filter(image => image.category === activeTab);
 
-    const currentItems = filteredImages.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    // filteredImages를 반전한 다음, currentItems를 슬라이스합니다.
+    const reversedImages = [...filteredImages].reverse();
+    const currentItems = reversedImages.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
     const tabs = ['ALL', '논문', '특허', '공모전', '학술대회', '학술지'];
 
@@ -220,7 +224,7 @@ export const LabProjects = () => {
 
                 {/* 이미지 그리드 */}
                 <div className="image-grid">
-                    {currentItems.slice().reverse().map((image) => (
+                    {currentItems.map((image) => (
                         <div key={image.id} className="image-item">
                             <img src={image.src} alt={image.category} />
                             <div className="image-info">
@@ -247,10 +251,13 @@ export const LabProjects = () => {
 
 export const LabMemories = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 12;
+    const itemsPerPage = 9;
 
     const totalItems = MemoryimagesData.length;
-    const currentItems = MemoryimagesData.slice(
+
+    // MemoryimagesData를 반전한 다음, currentItems를 슬라이스합니다.
+    const reversedImages = [...MemoryimagesData].reverse();
+    const currentItems = reversedImages.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
@@ -259,7 +266,7 @@ export const LabMemories = () => {
         <div className="aboutlab-container">
             <div className="memories-container">
                 <div className="image-grid">
-                    {currentItems.slice().reverse().map((Memoryimage) => (
+                    {currentItems.map((Memoryimage) => (
                         <div key={Memoryimage.id} className="image-item">
                             <img src={Memoryimage.src} alt={Memoryimage.title} />
                             <div className="image-info">
@@ -337,20 +344,83 @@ export const ProfessorProfile = () => {
     );
 };
 export const Seminar = () => {
-    return(
-        <div className="seminar-container">
-            <div className="search-box">
-                <div className="content">
-                    <span className="icon"><i className="i-search"></i></span>
-                    <input type="Search" id="search" placeholder="Search.." />
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 9;
+
+    const totalItems = SeminarsData.length;
+
+    // SeminarsData를 반전한 후 currentItems를 슬라이스합니다.
+    const reversedData = [...SeminarsData].reverse();
+    const currentItems = reversedData.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
+    return (
+        <div className="aboutlab-container">
+            <div className="seminar-container">
+                <div className="search-box">
+                    <div className="content">
+                        <span className="icon"><i className="fas fa-search"></i></span>
+                        <input type="search" id="search" placeholder="Search.." />
+                    </div>
                 </div>
+                <div className="info-count">
+                    Number of entries: <span>{totalItems}</span>
+                </div>
+                <div className="wrapper-seminar-list">
+                    {currentItems.map(seminar => (
+                        <div className="seminar-container news-column" key={seminar.id}>
+                            <div className="news-content">
+                                <div className="image-box">
+                                    {/* D-Day 표시 */}
+                                    <div className={`dday ${seminar.dday === '종료' ? 'black' : ''}`}>
+                                        {seminar.dday}
+                                    </div>
+                                    {/* 세미나 이미지 */}
+                                    <div 
+                                        className="real-img"
+                                        style={{ backgroundImage: `url(${seminar.imageUrl})` }}
+                                    ></div>
+                                    {/* 이미지 오버레이 */}
+                                    <div className="overlay">
+                                        <div className="wrapper">
+                                            <a href={seminar.link} target="_self" rel="noopener noreferrer">
+                                                자세히
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* 세미나 정보 */}
+                                <div className="content-box">
+                                    <h3 className="seminar-title">
+                                        <a href={seminar.link} target="_self" rel="noopener noreferrer">
+                                            {seminar.title}
+                                        </a>
+                                    </h3>
+                                    <span><i className="fa-solid fa-user"></i><h4>{seminar.presenter}</h4></span>
+                                    <span><i className="fa-regular fa-calendar"></i><p>{seminar.date}</p></span>
+                                </div>
+                                {/* 푸터 부분 */}
+                                <div className="line-footer">
+                                    <a href={seminar.link} className="seminar-info-button" target="_self" rel="noopener noreferrer">
+                                        세미나 정보 보기 <i className="fa-solid fa-arrow-right-long"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                {/* Pagination 컴포넌트 사용 */}
+                <Pagination
+                    totalItems={totalItems}
+                    itemsPerPage={itemsPerPage}
+                    currentPage={currentPage}
+                    onPageChange={setCurrentPage}
+                />
             </div>
-            <div className="info-count">
-                
-            </div>
-            <div className="wrapper-seminar-list"></div>
-            <Pagination/>
         </div>
-    )
-}
+    );
+};
+
 

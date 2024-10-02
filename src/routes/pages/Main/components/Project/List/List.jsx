@@ -25,7 +25,9 @@ export const imagesData = [
     // 더 많은 이미지 추가 가능
 ];
 
-export const List = () => {
+export const List = ({
+    datas = imagesData
+}) => {
     const settings = {
         dots: false, // 하단에 점 내비게이션 표시
         infinite: true, // 무한 반복
@@ -45,11 +47,11 @@ export const List = () => {
             window.scrollTo(0, 495);  // 원하는 스크롤 위치로 이동 (500은 예시)
         }, 0); 
     }
-    
+
         return (
             <div className="list-container" onClick={goToInfo}>
                 <Slider {...settings}>
-                    {imagesData.slice().reverse().map((data, index) => (
+                    {datas.slice().reverse().map((data, index) => (
                         <div key={index} className="list-contents">
                             <img className="list-img" src={data.src} alt={`slide-${index}`} />
                         </div>

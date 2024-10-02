@@ -16,7 +16,7 @@ export const Top = () => {
     return(
         <div className="top-container" >
             <img src={IMPL} alt="impl" onClick={goToMain}/>
-            <h2 onClick={goToMain}>IMPL 연구실</h2>
+            <h2 onClick={goToMain}>IMPL Lab</h2>
         </div>
     )
 }
