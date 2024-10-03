@@ -180,12 +180,12 @@
 }
 
 .image-info h5 {
-    font-size: 1vw; /* 타이틀 텍스트 크기 */
+    font-size: 1.3vw; /* 타이틀 텍스트 크기 */
     color: var(--category-color);
 }
 
 .image-info p {
-    font-size: 0.7vw; /* 부가 정보 텍스트 크기 */
+    font-size: 1vw; /* 부가 정보 텍스트 크기 */
     color: var(--date-color);
 }
 
@@ -332,13 +332,20 @@ vertical-align: top;
 
 .info-count {
     margin-bottom: 18px;
-    font-weight: 500;
+    font-weight: 600;
     color: #760023;
 }
 
 .info-count span {
     padding-left: 2px;
     color: #333 !important;
+}
+
+.no-results{
+    justify-content: center;
+    display: flex;
+    margin: 5rem 0;
+    font-weight: 600;
 }
 
 .seminar-container{
@@ -356,14 +363,14 @@ vertical-align: top;
 
 /* 화면이 1200px 이하일 때: 가로 2줄 */
 @media (max-width: 1200px) {
-    .wrapper-seminar-list {
+    .wrapper-seminar-list, .image-grid{
         grid-template-columns: repeat(2, 1fr); /* 2개의 열 */
     }
 }
 
 /* 화면이 768px 이하일 때: 가로 1줄 */
 @media (max-width: 768px) {
-    .wrapper-seminar-list {
+    .wrapper-seminar-list, .image-grid{
         grid-template-columns: 1fr; /* 1개의 열 */
     }
 }

@@ -91,7 +91,6 @@ const Pagination = ({ totalItems, itemsPerPage, currentPage, onPageChange }) => 
 };
 
 
-
 export const LabIntro = () => {
     return(
         <div className="aboutlab-container">
@@ -187,7 +186,6 @@ export const LabIntro = () => {
 }
 
 
-
 export const LabProjects = () => {
     const [activeTab, setActiveTab] = useState('ALL');
     const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
@@ -249,6 +247,7 @@ export const LabProjects = () => {
     );
 };
 
+
 export const LabMemories = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9;
@@ -288,6 +287,7 @@ export const LabMemories = () => {
         </div>
     );
 };
+
 
 export const ProfessorProfile = () => {
     return(
@@ -343,15 +343,25 @@ export const ProfessorProfile = () => {
         </div>
     );
 };
+
+
 export const Seminar = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchQuery, setSearchQuery] = useState('');  // 검색어 상태
     const itemsPerPage = 9;
 
-    const totalItems = SeminarsData.length;
-
-    // SeminarsData를 반전한 후 currentItems를 슬라이스합니다.
+    // SeminarsData를 반전한 후 검색 필터링 적용
     const reversedData = [...SeminarsData].reverse();
-    const currentItems = reversedData.slice(
+
+    const filteredData = reversedData.filter(seminar => 
+        seminar.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        seminar.presenter.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const totalItems = filteredData.length;
+
+    // 페이지네이션을 적용한 현재 페이지의 데이터
+    const currentItems = filteredData.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
@@ -362,62 +372,76 @@ export const Seminar = () => {
                 <div className="search-box">
                     <div className="content">
                         <span className="icon"><i className="fas fa-search"></i></span>
-                        <input type="search" id="search" placeholder="Search.." />
+                        <input 
+                            type="search" 
+                            id="search" 
+                            placeholder="Search.." 
+                            value={searchQuery}
+                            onChange={(e) => {
+                                setSearchQuery(e.target.value); // 검색어 업데이트
+                                setCurrentPage(1); // 검색 시 페이지를 첫 페이지로 이동
+                            }}
+                        />
                     </div>
                 </div>
                 <div className="info-count">
                     Number of entries: <span>{totalItems}</span>
+                    {searchQuery && <span> (필터 활성화)</span>} {/* 검색어가 있을 때만 필터 활성화 표시 */}
                 </div>
-                <div className="wrapper-seminar-list">
-                    {currentItems.map(seminar => (
-                        <div className="seminar-container news-column" key={seminar.id}>
-                            <div className="news-content">
-                                <div className="image-box">
-                                    {/* D-Day 표시 */}
-                                    <div className={`dday ${seminar.dday === '종료' ? 'black' : ''}`}>
-                                        {seminar.dday}
-                                    </div>
-                                    {/* 세미나 이미지 */}
-                                    <div 
-                                        className="real-img"
-                                        style={{ backgroundImage: `url(${seminar.imageUrl})` }}
-                                    ></div>
-                                    {/* 이미지 오버레이 */}
-                                    <div className="overlay">
-                                        <div className="wrapper">
-                                            <a href={seminar.link} target="_self" rel="noopener noreferrer">
-                                                자세히
-                                            </a>
+
+                {totalItems === 0 ? (
+                    <div className="no-results">
+                        <h3>검색결과가 없습니다.</h3>
+                    </div>
+                ) : (
+                    <div className="wrapper-seminar-list">
+                        {currentItems.map(seminar => (
+                            <div className="seminar-container news-column" key={seminar.id}>
+                                <div className="news-content">
+                                    <div className="image-box">
+                                        <div className={`dday ${seminar.dday === '종료' ? 'black' : ''}`}>
+                                            {seminar.dday}
+                                        </div>
+                                        <div 
+                                            className="real-img"
+                                            style={{ backgroundImage: `url(${seminar.imageUrl})` }}
+                                        ></div>
+                                        <div className="overlay">
+                                            <div className="wrapper">
+                                                <a href={seminar.link} target="_self" rel="noopener noreferrer">
+                                                    자세히
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                {/* 세미나 정보 */}
-                                <div className="content-box">
-                                    <h3 className="seminar-title">
-                                        <a href={seminar.link} target="_self" rel="noopener noreferrer">
-                                            {seminar.title}
+                                    <div className="content-box">
+                                        <h3 className="seminar-title">
+                                            <a href={seminar.link} target="_self" rel="noopener noreferrer">
+                                                {seminar.title}
+                                            </a>
+                                        </h3>
+                                        <span><i className="fa-solid fa-user"></i><h4>{seminar.presenter}</h4></span>
+                                        <span><i className="fa-regular fa-calendar"></i><p>{seminar.date}</p></span>
+                                    </div>
+                                    <div className="line-footer">
+                                        <a href={seminar.link} className="seminar-info-button" target="_self" rel="noopener noreferrer">
+                                            세미나 정보 보기 <i className="fa-solid fa-arrow-right-long"></i>
                                         </a>
-                                    </h3>
-                                    <span><i className="fa-solid fa-user"></i><h4>{seminar.presenter}</h4></span>
-                                    <span><i className="fa-regular fa-calendar"></i><p>{seminar.date}</p></span>
-                                </div>
-                                {/* 푸터 부분 */}
-                                <div className="line-footer">
-                                    <a href={seminar.link} className="seminar-info-button" target="_self" rel="noopener noreferrer">
-                                        세미나 정보 보기 <i className="fa-solid fa-arrow-right-long"></i>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-                {/* Pagination 컴포넌트 사용 */}
-                <Pagination
-                    totalItems={totalItems}
-                    itemsPerPage={itemsPerPage}
-                    currentPage={currentPage}
-                    onPageChange={setCurrentPage}
-                />
+                        ))}
+                    </div>
+                )}
+
+                {totalItems > 0 && (
+                    <Pagination
+                        totalItems={totalItems}
+                        itemsPerPage={itemsPerPage}
+                        currentPage={currentPage}
+                        onPageChange={setCurrentPage}
+                    />
+                )}
             </div>
         </div>
     );

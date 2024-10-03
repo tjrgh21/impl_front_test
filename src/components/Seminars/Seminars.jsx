@@ -93,7 +93,7 @@ export const SeminarsData = [
         link: "./seminar"
     },
     {
-        id: 8,
+        id: 11,
         title: "Out-Of-Distribution Detection for Image Classification: Part2",
         presenter: "김원중",
         date: "2024년 9월 26일",

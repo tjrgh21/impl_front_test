@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     font-size: 20px;
     position: fixed;
     top: 0;
@@ -17,6 +18,28 @@
     cursor: pointer;
 }
 
-.top-container h2 {
+.top-container .logo-box{
+    display: flex;
     cursor: pointer;
+}
+
+.report-button{
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #000;
+}
+
+/* .report-button:hover{
+    color: #0077b3;
+} */
+
+.report-button i{
+    margin-left: 0.5rem;
 }

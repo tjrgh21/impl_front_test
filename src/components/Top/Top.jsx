@@ -15,8 +15,11 @@ export const Top = () => {
 
     return(
         <div className="top-container" >
-            <img src={IMPL} alt="impl" onClick={goToMain}/>
-            <h2 onClick={goToMain}>IMPL Lab</h2>
+            <div className="logo-box" onClick={goToMain}>
+                <img src={IMPL} alt="impl"/>
+                <h2>IMPL Lab</h2>
+            </div>
+            <button className="report-button">주간보고<i class="fa-solid fa-arrow-right-to-bracket"></i></button>
         </div>
     )
 }
