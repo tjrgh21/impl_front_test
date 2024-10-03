@@ -26,7 +26,7 @@
 .contentbox-title {
     font-size: 28px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
 .contentbox-info {
@@ -52,4 +52,42 @@
     display: flex;
     flex-direction: row;
     gap: 30px;
+}
+
+
+.con-download {
+    background-color: #760023;
+    border-radius: 5px;
+    max-width: 850px;
+    padding: 14px;
+}
+
+.con-download a {
+    color: white;
+    text-decoration: none;
+}
+
+.con-title{
+    max-width: 180px;
+    width: 100%;
+}
+
+.youtube-player iframe {
+    width: 560px;
+    height: 315px;
+  }
+
+.overview1 {
+    margin-bottom: 8%;
+    font-weight: 600;
+}
+
+.overview2 {
+    letter-spacing: 1px;
+    border-bottom: 1px solid #9999995b;
+    padding-bottom: 24px;
+}
+
+.review-text {
+    padding-top: 12px;
 }
