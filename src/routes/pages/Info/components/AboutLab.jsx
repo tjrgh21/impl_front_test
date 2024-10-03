@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import './AboutLab.css';
 import ProfessorImg from '../../../../assets/images/professor.jpg'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { imagesData } from "../../Main/components/Project/List/List";
-import { MemoryimagesData } from "../../Main/components/ImplMemory/Card/Card";
-import { SeminarsData } from "../../../../components/Seminars/Seminars";
+import { useProjectContext } from "../../../../Context/ProjectContext";
+import { useMemoryContext } from "../../../../Context/MemoryContext";
+import { useSeminarContext } from "../../../../Context/SeminarContext";
 
 
 const InfoBox = ({ label, data }) => {
@@ -187,6 +187,7 @@ export const LabIntro = () => {
 
 
 export const LabProjects = () => {
+    const { imagesData } = useProjectContext();
     const [activeTab, setActiveTab] = useState('ALL');
     const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
     const itemsPerPage = 9; // 한 페이지에 보여줄 아이템 수
@@ -249,13 +250,14 @@ export const LabProjects = () => {
 
 
 export const LabMemories = () => {
+    const { MemoryImagesData } = useMemoryContext();
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9;
 
-    const totalItems = MemoryimagesData.length;
+    const totalItems = MemoryImagesData.length;
 
-    // MemoryimagesData를 반전한 다음, currentItems를 슬라이스합니다.
-    const reversedImages = [...MemoryimagesData].reverse();
+    // memoryimagesData를 반전한 다음, currentItems를 슬라이스합니다.
+    const reversedImages = [...MemoryImagesData].reverse();
     const currentItems = reversedImages.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
@@ -265,12 +267,12 @@ export const LabMemories = () => {
         <div className="aboutlab-container">
             <div className="memories-container">
                 <div className="image-grid">
-                    {currentItems.map((Memoryimage) => (
-                        <div key={Memoryimage.id} className="image-item">
-                            <img src={Memoryimage.src} alt={Memoryimage.title} />
+                    {currentItems.map((memoryimage) => (
+                        <div key={memoryimage.id} className="image-item">
+                            <img src={memoryimage.src} alt={memoryimage.title} />
                             <div className="image-info">
-                                <h5>{Memoryimage.title}</h5>
-                                <p>{Memoryimage.date}</p>
+                                <h5>{memoryimage.title}</h5>
+                                <p>{memoryimage.date}</p>
                             </div>
                         </div>
                     ))}
@@ -346,6 +348,7 @@ export const ProfessorProfile = () => {
 
 
 export const Seminar = () => {
+    const {SeminarsData} = useSeminarContext();
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');  // 검색어 상태
     const itemsPerPage = 9;
