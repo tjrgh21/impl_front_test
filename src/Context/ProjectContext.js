@@ -17,7 +17,7 @@ export const ProjectProvider = ({ children }) => {
         { id: 10, category: '학술대회', title: '프로젝트명10', date: '2024-08-31', src: DSUimage },
         { id: 11, category: '학술지', title: '프로젝트명11', date: '2024-09-05', src: DSUimage },
         { id: 12, category: '논문', title: '프로젝트명12', date: '2024-09-10', src: DSUimage, badge: true },
-        { id: 13, category: '특허', title: '프로젝트명13', date: '2024-09-16', src: DSUimage },
+        { id: 13, category: '특허', title: '프로젝트명13', date: '2024-09-16', src: 'swtest.png' },
         { id: 14, category: '공모전', title: '프로젝트명14', date: '2024-09-23', src: DSUimage },
     
         // 더 많은 이미지 추가 가능
