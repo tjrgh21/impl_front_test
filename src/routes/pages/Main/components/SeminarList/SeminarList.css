@@ -1,0 +1,39 @@
+.seminarlist-container {
+    overflow-x: hidden;
+    cursor: pointer;
+}
+
+.seminarlist-container .seminarlist-img {
+    width: 100%;
+    height: 45vh;
+    border-radius: 10px;
+}
+
+.seminarlist-container .seminarlist-contents {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding: 0 10px;
+}
+
+.seminarlist-container .seminarlist-contents::-webkit-scrollbar{
+    display: none;
+}
+
+.seminarlist-container .seminarlist-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px 10px 0px;
+}
+
+.seminarlist-container .seminarlist-title .seminarlist-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 20px;
+}
+
+.seminarlist-contents {
+    margin-bottom: 50px;
+}

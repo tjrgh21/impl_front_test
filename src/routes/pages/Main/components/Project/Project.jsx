@@ -7,9 +7,9 @@ export const Project = () => {
 
     return(
         <div className="project-container" id="project-section">
-            <div className="project-title">
+            {/* <div className="project-title">
                 <p className="project-name">프로젝트/연구</p>
-            </div>
+            </div> */}
             <div className="project-contents">
                 <List></List>
             </div>

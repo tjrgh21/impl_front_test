@@ -1,17 +1,23 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import './ContentBox.css'
+import { SeminarsData } from "../../../../components/Seminars/Seminars";
 
 export const ContentBox = () => {
+
+    const { id } = useParams();
+    const seminar = SeminarsData.find((seminar) => seminar.id === parseInt(id));
+
     return(
         <div className="contentbox-container">
             <div className="contentbox-wrap">
                 <div className="contentbox-inner">
                     <div className="contentbox-title">
-                        세미나 제목
+                        {seminar.title}
                     </div>
                     <ul className="contentbox-info">
                         <li>
-                            2024년 9월 24일 오전 10:00 
+                            {seminar.date}
                         </li>
                         <li>
                             / 조회수 : 12345
@@ -36,7 +42,7 @@ export const ContentBox = () => {
                                     <h3>INFORMATION</h3>
                                 </div>
                                 <div className="con">
-                                    <h4>발표자 : 김권후</h4>
+                                    <h4>발표자 : {seminar.presenter}</h4>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +53,7 @@ export const ContentBox = () => {
                                     <h3>TOPIC</h3>
                                 </div>
                                 <div className="con">
-                                    <h4>Out-of-distribution Generalization: Distributionally robust optimization 1</h4>
+                                    <h4>{seminar.title}</h4>
                                 </div>
                             </div>
                         </div>

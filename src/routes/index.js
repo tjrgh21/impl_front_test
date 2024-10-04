@@ -17,7 +17,7 @@ const Router = () => {
                     element={<Info />}
                 />
                 <Route
-                    path="/seminar"
+                    path="/seminar/:id"
                     element={<Seminar/>}
                 />
             </Routes>
