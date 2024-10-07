@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 0px 10px 0px;
+    padding: 50px 0px 20px 0px;
 }
 
 .impl-memory-container .impl-memory-title .impl-memory-name {

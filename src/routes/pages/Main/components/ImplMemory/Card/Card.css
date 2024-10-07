@@ -1,6 +1,9 @@
 .card-container .card-contents .card-img {
     width: 100%;
     height: 45vh;
+    aspect-ratio: 16 / 9; /* 가로 세로 비율 4:3 */
+    object-fit: cover; /* 이미지가 컨테이너를 채우도록 */
+    max-width: 100%;
 }
 
 .card-container {
@@ -41,5 +44,5 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
