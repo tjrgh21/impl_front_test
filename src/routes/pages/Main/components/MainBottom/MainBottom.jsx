@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 export const MainBottom = () => {
     const navigate = useNavigate();
     const goToInfo = () => {
-        navigate('/info', { state: { activeKey: '4' } })
+        navigate('/info', { state: { activeKey: '4' } });
+        setTimeout(() => {
+            window.scrollTo(0, 495);  // 원하는 스크롤 위치로 이동 (500은 예시)
+        }, 0);
     }
 
     return(

@@ -17,7 +17,7 @@ export const MemoryProvider = ({ children }) => {
         { id: 10, title: '임플의 추억10', date: '2024-08-19', src: DSUimage },
         { id: 11, title: '임플의 추억11', date: '2024-08-25', src: DSUimage },
         { id: 12, title: '임플의 추억12', date: '2024-09-09', src: DSUimage },
-        { id: 13, title: '임플의 추억13', date: '2024-09-16', src: DSUimage },
+        { id: 13, title: '임플의 추억13', date: '2024-09-16', src: 'swtest.png' },
         { id: 14, title: '임플의 추억14', date: '2024-09-20', src: DSUimage },
 
         // 더 많은 이미지 추가 가능

@@ -15,12 +15,11 @@ code {
 
 @font-face {
   font-family: "IBMPlexSansKR";
-  font-weight: 500;
   font-style: normal;
   src: url("assets/font/IBMPlexSansKR-Regular.ttf");
 }
 
-body {
+*, body {
   font-family: "IBMPlexSansKR";
   margin: 0;
 }

@@ -9,7 +9,18 @@
     height: 75vh;
 }
 
-.banner-buttons {
+.banner-notice h3 {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    color: white;
+    font-size: 38px;
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+}
+
+/* .banner-buttons {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -32,16 +43,5 @@
 
 .banner-buttons button:hover {
     background-color: #0056b3;
-}
+} */
 
-.banner-notice h3 {
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-
-    color: white;
-    font-size: 38px;
-    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
-}

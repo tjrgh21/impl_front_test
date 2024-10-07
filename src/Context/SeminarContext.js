@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import DSUimage from '../assets/images/DSU_Banner.png';
 
 const SeminarContext = createContext();
 
@@ -82,7 +83,7 @@ export const SeminarProvider = ({ children }) => {
             presenter: "정훈",
             date: "2024년 9월 23일",
             dday: "종료",
-            imageUrl: "image.png",
+            imageUrl: "swtest.png",
             link: "./seminar"
         },
         {
@@ -100,7 +101,7 @@ export const SeminarProvider = ({ children }) => {
             presenter: "김원중",
             date: "2024년 9월 26일",
             dday: "종료",
-            imageUrl: "image.png",
+            imageUrl: DSUimage,
             link: "./seminar"
         },
     ]);

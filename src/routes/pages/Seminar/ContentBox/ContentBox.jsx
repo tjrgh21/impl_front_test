@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import './ContentBox.css'
-import { SeminarsData } from "../../../../components/Seminars/Seminars";
+import { useSeminarContext } from "../../../../Context/SeminarContext";
 
 export const ContentBox = () => {
-
+    const {SeminarsData} = useSeminarContext();
     const { id } = useParams();
     const seminar = SeminarsData.find((seminar) => seminar.id === parseInt(id));
 
@@ -13,7 +13,7 @@ export const ContentBox = () => {
             <div className="contentbox-wrap">
                 <div className="contentbox-inner">
                     <div className="contentbox-title">
-                        {seminar.title}
+                        {seminar.id} {seminar.title}
                     </div>
                     <ul className="contentbox-info">
                         <li>
@@ -119,6 +119,17 @@ export const ContentBox = () => {
                                             이번 세미나는 Distribution Shift 중 Group Shift에 대해 진행되었다. Group Shift는 상위 그룹 데이터 기준으로 데이터 분포가 동일할 수는 있지만, 하위 그룹 기준으로는 상이할 수 있다는 것을 의미한다. 10p 장표를 보면 쉽게 이해할 수 있다. 이를 해결하기 위한 방법(DRO)은 ERM처럼 평균을 최적화하는 것이 아닌, Worst-Case를 줄여가는 방식으로 학습한다. 실험적으로 보면, 평균 성능은 ERM이 DRO보다 높지만, Worst-Case에 대해서는 DRO가 훨씬 월등했다. 향후 인공지능 관점에서 완벽한 모델이 되려면, ERM처럼 대체로 모든 샘플을 잘 맞추는 것도 중요하지만, 극히 어려운 Sample들을 잘 맞추는 것 또한 중요할 것이다. 이처럼 DRO는 향후 인공지능이 매우 포화된 상태에서 중요한 Key 역할을 할 것 같다는 느낌을 받았다. 유익한 세미나를 준비해준 정진용 연구원님께 고맙다는 말을 전하며 세미나 후기를 마친다.
                                         </p>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="contentbox-block">
+                            <div className="contentbox-direction">
+                                <div className="before">                              
+                                    <a href={`/seminar/${seminar.id-1}`}><i class="fa-solid fa-arrow-left-long"></i>이전</a>                         
+                                </div>
+                                <div className="next">                          
+                                    <a href={`/seminar/${seminar.id+1}`}>다음<i class="fa-solid fa-arrow-right-long"></i></a>
                                 </div>
                             </div>
                         </div>

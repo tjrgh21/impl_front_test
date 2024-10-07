@@ -8,6 +8,7 @@ import { SeminarList } from "./components/SeminarList/SeminarList";
 
 
 const MainPresenter = () => {
+
     return (
         <div className="main-container">
             <Layout >

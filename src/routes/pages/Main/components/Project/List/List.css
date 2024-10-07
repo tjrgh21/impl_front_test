@@ -1,22 +1,38 @@
 .list-container {
     overflow-x: hidden;
-    cursor: pointer;
 }
 
 .list-container .list-img {
-    width: 100%;
+    /* width: 100%;
     height: 45vh;
-    border-radius: 10px;
+    border-radius: 10px; */
+    margin: 0 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    /* object-fit: cover;  */
+    /* border-radius: 10px; */
 }
 
 .list-container .list-contents {
     display: flex;
+    position: relative;
+    width: 50%;
     flex-wrap: nowrap;
     overflow-x: scroll;
     padding: 0 10px;
 }
 
+.list-container .list-contents::after{
+    display: block;
+    content: "";
+    padding-bottom: 100%;
+}
+
 .list-container .list-contents::-webkit-scrollbar{
     display: none;
-  }
+}
 

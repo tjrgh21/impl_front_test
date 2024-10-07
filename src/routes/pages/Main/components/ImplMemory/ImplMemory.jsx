@@ -2,7 +2,6 @@ import React from "react";
 import './ImplMemory.css'
 import { Card } from "./Card/Card";
 
-
 export const ImplMemory = () => {
 
     return(
