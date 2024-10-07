@@ -1,0 +1,17 @@
+.seminarlist-container{
+    margin-bottom: 4rem;
+}
+
+.seminarlist-container .seminarlist-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px 10px 0px;
+}
+
+.seminarlist-container .seminarlist-title .seminarlist-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 20px;
+}

@@ -4,11 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from "react-router-dom";
-import { useProjectContext } from "../../../../../../Context/ProjectContext";
 
 
-export const List = () => {
-    const { imagesData } = useProjectContext();
+export const List = ({ dataList, activeKey }) => {
 
     const settings = {
         dots: false, // 하단에 점 내비게이션 표시
@@ -24,18 +22,18 @@ export const List = () => {
     const navigate = useNavigate();
 
     const goToInfo = () => {
-        navigate("/info", { state: { activeKey: '2' } });
+        navigate("/info", { state: { activeKey } });
         setTimeout(() => {
             window.scrollTo(0, 495);  // 원하는 스크롤 위치로 이동 (500은 예시)
         }, 0); 
     }
 
         return (
-            <div className="list-container" onClick={goToInfo}>
+            <div className="list-container">
                 <Slider {...settings}>
-                    {imagesData.slice().reverse().map((data, index) => (
+                    {dataList.slice().reverse().map((data, index) => (
                         <div key={index} className="list-contents">
-                            <img className="list-img" src={data.src} alt={`slide-${index}`} />
+                            <img onClick={goToInfo} className="list-img" src={data.imageUrl} alt={`slide-${index}`} />
                         </div>
                     ))}
                 </Slider>

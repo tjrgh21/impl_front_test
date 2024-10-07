@@ -1,9 +1,11 @@
 import React from "react";
 import './Project.css'
 import { List } from "./List/List";
+import { useProjectContext } from "../../../../../Context/ProjectContext";
 
 
 export const Project = () => {
+    const { imagesData } = useProjectContext();
 
     return(
         <div className="project-container" id="project-section">
@@ -11,7 +13,7 @@ export const Project = () => {
                 <p className="project-name">프로젝트/연구</p>
             </div>
             <div className="project-contents">
-                <List></List>
+                <List dataList={imagesData} activeKey={'2'}/>
             </div>
         </div>
     )

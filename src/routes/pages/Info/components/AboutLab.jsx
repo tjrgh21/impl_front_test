@@ -225,7 +225,7 @@ export const LabProjects = () => {
                 <div className="image-grid">
                     {currentItems.map((image) => (
                         <div key={image.id} className="image-item">
-                            <img src={image.src} alt={image.category} />
+                            <img src={image.imageUrl} alt={image.category} />
                             <div className="image-info">
                                 <h3>{image.title}</h3>
                                 <h5>{image.category}</h5>
@@ -269,7 +269,7 @@ export const LabMemories = () => {
                 <div className="image-grid">
                     {currentItems.map((memoryimage) => (
                         <div key={memoryimage.id} className="image-item">
-                            <img src={memoryimage.src} alt={memoryimage.title} />
+                            <img src={memoryimage.imageUrl} alt={memoryimage.title} />
                             <div className="image-info">
                                 <h5>{memoryimage.title}</h5>
                                 <p>{memoryimage.date}</p>
@@ -411,7 +411,7 @@ export const Seminar = () => {
                                         ></div>
                                         <div className="overlay">
                                             <div className="wrapper">
-                                                <a href={seminar.link} target="_self" rel="noopener noreferrer">
+                                                <a href={`/seminar/${seminar.id}`} target="_self" rel="noopener noreferrer">
                                                     자세히
                                                 </a>
                                             </div>
@@ -419,7 +419,7 @@ export const Seminar = () => {
                                     </div>
                                     <div className="content-box">
                                         <h3 className="seminar-title">
-                                            <a href={seminar.link} target="_self" rel="noopener noreferrer">
+                                            <a href={`/seminar/${seminar.id}`} target="_self" rel="noopener noreferrer">
                                                 {seminar.title}
                                             </a>
                                         </h3>
@@ -427,7 +427,7 @@ export const Seminar = () => {
                                         <span><i className="fa-regular fa-calendar"></i><p>{seminar.date}</p></span>
                                     </div>
                                     <div className="line-footer">
-                                        <a href={seminar.link} className="seminar-info-button" target="_self" rel="noopener noreferrer">
+                                        <a href={`/seminar/${seminar.id}`} className="seminar-info-button" target="_self" rel="noopener noreferrer">
                                             세미나 정보 보기 <i className="fa-solid fa-arrow-right-long"></i>
                                         </a>
                                     </div>

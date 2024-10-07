@@ -23,7 +23,7 @@ export const Card = () => {
                         reversedImages.map((data, index) => {
                             return (
                                 <div className="card-items" key={index}>
-                                    <img className="card-img" src={data.src} alt="" />
+                                    <img className="card-img" src={data.imageUrl} alt="" />
                                     <div className="card-notice">
                                         <span className='card-title'>{data.title}</span>
                                         <span className='card-date'>{data.date}</span>

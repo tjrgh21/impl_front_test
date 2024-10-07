@@ -91,3 +91,20 @@
 .review-text {
     padding-top: 12px;
 }
+
+.contentbox-direction {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contentbox-block a{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+i {
+    margin-right: 6px;
+    margin-left: 6px;
+}
